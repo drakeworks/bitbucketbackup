@@ -1,6 +1,6 @@
 # Bitbucket Repository Backup Script
 
-A comprehensive bash script to automatically backup all repositories and branches from a Bitbucket workspace with advanced features like parallel processing, error recovery, and progress tracking.
+Bash script to automatically backup all repositories and branches from a Bitbucket workspace, updated to support Atlassian's API Tokens.
 
 ## ✨ Features
 
