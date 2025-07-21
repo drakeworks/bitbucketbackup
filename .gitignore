@@ -16,8 +16,16 @@ backup/
 # macOS
 .DS_Store
 
+# Windows
+Thumbs.db
+desktop.ini
+*.lnk
+
 # IDE files
 .vscode/
 .idea/
 *.swp
-*.swo 
+*.swo
+
+# PowerShell execution policy files
+*.ps1.log 

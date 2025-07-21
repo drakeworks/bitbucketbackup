@@ -1,6 +1,6 @@
 # Bitbucket Repository Backup Script
 
-Bash script to automatically backup all repositories and branches from a Bitbucket workspace, updated to support Atlassian's API Tokens.
+A comprehensive bash script to automatically backup all repositories and branches from a Bitbucket workspace with advanced features like parallel processing, error recovery, and progress tracking.
 
 ## ✨ Features
 
@@ -14,6 +14,7 @@ Bash script to automatically backup all repositories and branches from a Bitbuck
 - 🎯 **Dry-run mode** - Preview what would be backed up
 - 📝 **Comprehensive logging** - Colored, timestamped log messages
 - 📈 **Summary reports** - Detailed backup statistics and results
+- 🖥️ **Cross-platform support** - Works on macOS, Linux, and Windows
 
 ## 🚀 Quick Start
 
@@ -38,9 +39,56 @@ Bash script to automatically backup all repositories and branches from a Bitbuck
    ```
 
 4. **Run the backup:**
+
+   **On macOS/Linux:**
    ```bash
    chmod +x main.sh
    ./main.sh
+   ```
+
+   **On Windows:**
+   ```powershell
+   .\main.ps1
+   ```
+
+## 🖥️ Platform Support
+
+### ✅ **Supported Platforms:**
+
+| Platform | Script | Requirements |
+|----------|--------|--------------|
+| **macOS** | `main.sh` | Bash 4.0+, Git, curl |
+| **Linux** | `main.sh` | Bash 4.0+, Git, curl |
+| **Windows (WSL)** | `main.sh` | WSL, Bash 4.0+, Git, curl |
+| **Windows (PowerShell)** | `main.ps1` | PowerShell 5.0+, Git |
+
+### 📋 **Requirements by Platform:**
+
+#### **macOS/Linux/WSL:**
+- Bash shell (version 4.0 or higher)
+- Git (version 2.0 or higher)
+- curl (for API communication)
+- jq (optional, for better JSON parsing)
+
+#### **Windows (PowerShell):**
+- PowerShell 5.0 or higher
+- Git for Windows
+- Execution policy allowing script execution
+
+### 🔧 **Windows Setup:**
+
+1. **Enable PowerShell script execution:**
+   ```powershell
+   Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+   ```
+
+2. **Install Git for Windows** (if not already installed):
+   - Download from: https://git-scm.com/download/win
+   - Ensure Git is added to PATH
+
+3. **Run the PowerShell script:**
+   ```powershell
+   .\main.ps1
    ```
 
 ## 📋 Getting Your Bitbucket API Token
@@ -60,6 +108,7 @@ Bash script to automatically backup all repositories and branches from a Bitbuck
 
 ## 🎛️ Command Line Options
 
+### **macOS/Linux (main.sh):**
 ```bash
 Usage: main.sh [OPTIONS]
 
@@ -77,45 +126,106 @@ EXAMPLES:
     ./main.sh --dry-run          # See what would be backed up
     ./main.sh --verbose --jobs 8 # Verbose output with 8 parallel jobs
     ./main.sh --config my.env    # Use custom config file
-    ./main.sh --verify           # Verify backups after completion
+```
+
+### **Windows PowerShell (main.ps1):**
+```powershell
+Usage: main.ps1 [OPTIONS]
+
+OPTIONS:
+    -ConfigFile FILE    Specify configuration file (default: config.env)
+    -DryRun            Show what would be done without executing
+    -Verbose           Enable verbose output
+    -SkipExisting      Skip repositories that already exist
+    -Jobs N            Number of parallel jobs (default: 4)
+    -Verify            Verify backups after completion
+    -Help              Show this help message
+
+EXAMPLES:
+    .\main.ps1                    # Run with default settings
+    .\main.ps1 -DryRun            # See what would be backed up
+    .\main.ps1 -Verbose -Jobs 8   # Verbose output with 8 parallel jobs
+    .\main.ps1 -ConfigFile my.env # Use custom config file
 ```
 
 ## 🔧 Advanced Usage
 
 ### Dry Run Mode
 Preview what the script would do without making any changes:
+
+**macOS/Linux:**
 ```bash
 ./main.sh --dry-run
 ```
 
+**Windows:**
+```powershell
+.\main.ps1 -DryRun
+```
+
 ### Verbose Output
 Get detailed information about each step:
+
+**macOS/Linux:**
 ```bash
 ./main.sh --verbose
 ```
 
+**Windows:**
+```powershell
+.\main.ps1 -Verbose
+```
+
 ### Parallel Processing
 Speed up backups by running multiple repositories in parallel:
+
+**macOS/Linux:**
 ```bash
 ./main.sh --jobs 8  # Use 8 parallel jobs
 ```
 
+**Windows:**
+```powershell
+.\main.ps1 -Jobs 8  # Use 8 parallel jobs
+```
+
 ### Skip Existing Repositories
 Only backup new repositories, skip existing ones:
+
+**macOS/Linux:**
 ```bash
 ./main.sh --skip-existing
 ```
 
+**Windows:**
+```powershell
+.\main.ps1 -SkipExisting
+```
+
 ### Backup Verification
 Verify that all backups are valid after completion:
+
+**macOS/Linux:**
 ```bash
 ./main.sh --verify
 ```
 
+**Windows:**
+```powershell
+.\main.ps1 -Verify
+```
+
 ### Custom Configuration
 Use a different configuration file:
+
+**macOS/Linux:**
 ```bash
 ./main.sh --config production.env
+```
+
+**Windows:**
+```powershell
+.\main.ps1 -ConfigFile production.env
 ```
 
 ## 📊 What Gets Backed Up
@@ -153,10 +263,15 @@ The script includes comprehensive error handling:
 
 ## 📋 Requirements
 
+### **macOS/Linux:**
 - **Bash shell** (version 4.0 or higher)
 - **Git** (version 2.0 or higher)
 - **curl** (for API communication)
 - **jq** (optional, for better JSON parsing)
+
+### **Windows:**
+- **PowerShell** (version 5.0 or higher)
+- **Git for Windows** (version 2.0 or higher)
 
 ## 📝 Logging
 
