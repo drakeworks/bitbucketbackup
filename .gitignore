@@ -1,0 +1,23 @@
+# Configuration files with sensitive data
+config.env
+*.env
+
+# Backup directories
+Backup/
+backup/
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# macOS
+.DS_Store
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo 
