@@ -2,21 +2,23 @@
 
 A comprehensive bash script to automatically backup all repositories and branches from a Bitbucket workspace with advanced features like parallel processing, error recovery, and progress tracking.
 
-## ✨ Features
+> **Update:** This script now supports Atlassian API tokens — App Passwords will no longer work after June 9, 2026. (Bitbucket has given a year‑long transition from this 2025 announcement to phase out App Passwords.)
 
-- 🔄 **Automatic repository discovery** - Fetches all repositories from your Bitbucket workspace
-- 🌿 **All branches backup** - Backs up every branch in each repository
-- 🔐 **Secure authentication** - Uses Atlassian API tokens for authentication
-- 📊 **Progress tracking** - Real-time progress bar and detailed logging
-- 🛡️ **Error recovery** - Automatic retry with exponential backoff
-- ⚡ **Parallel processing** - Configurable parallel job execution
-- 🔍 **Backup verification** - Verify backups after completion
-- 🎯 **Dry-run mode** - Preview what would be backed up
-- 📝 **Comprehensive logging** - Colored, timestamped log messages
-- 📈 **Summary reports** - Detailed backup statistics and results
-- 🖥️ **Cross-platform support** - Works on macOS, Linux, and Windows
+## Features
 
-## 🚀 Quick Start
+- **Automatic repository discovery** - Fetches all repositories from your Bitbucket workspace
+- **All branches backup** - Backs up every branch in each repository
+- **Secure authentication** - Uses Atlassian API tokens for authentication
+- **Progress tracking** - Real-time progress bar and detailed logging
+- **Error recovery** - Automatic retry with exponential backoff
+- **Parallel processing** - Configurable parallel job execution
+- **Backup verification** - Verify backups after completion
+- **Dry-run mode** - Preview what would be backed up
+- **Comprehensive logging** - Colored, timestamped log messages
+- **Summary reports** - Detailed backup statistics and results
+- **Cross-platform support** - Works on macOS, Linux, and Windows
+
+## Quick Start
 
 1. **Clone this repository:**
    ```bash
@@ -53,7 +55,7 @@ A comprehensive bash script to automatically backup all repositories and branche
 
 ## 🖥️ Platform Support
 
-### ✅ **Supported Platforms:**
+### **Supported Platforms:**
 
 | Platform | Script | Requirements |
 |----------|--------|--------------|
@@ -62,7 +64,7 @@ A comprehensive bash script to automatically backup all repositories and branche
 | **Windows (WSL)** | `main.sh` | WSL, Bash 4.0+, Git, curl |
 | **Windows (PowerShell)** | `main.ps1` | PowerShell 5.0+, Git |
 
-### 📋 **Requirements by Platform:**
+### **Requirements by Platform:**
 
 #### **macOS/Linux/WSL:**
 - Bash shell (version 4.0 or higher)
@@ -75,7 +77,7 @@ A comprehensive bash script to automatically backup all repositories and branche
 - Git for Windows
 - Execution policy allowing script execution
 
-### 🔧 **Windows Setup:**
+### **Windows Setup:**
 
 1. **Enable PowerShell script execution:**
    ```powershell
@@ -91,7 +93,7 @@ A comprehensive bash script to automatically backup all repositories and branche
    .\main.ps1
    ```
 
-## 📋 Getting Your Bitbucket API Token
+## Getting Your Bitbucket API Token
 
 1. Go to [Atlassian Account Settings > Security > API tokens](https://id.atlassian.com/manage-profile/security/api-tokens)
 2. Click "Create API token with scopes"
@@ -106,7 +108,7 @@ A comprehensive bash script to automatically backup all repositories and branche
 
 **Note:** API tokens are created through your Atlassian account settings, not through Bitbucket directly. They provide better security and are the recommended authentication method for Bitbucket APIs.
 
-## 🎛️ Command Line Options
+## Command Line Options
 
 ### **macOS/Linux (main.sh):**
 ```bash
@@ -148,7 +150,7 @@ EXAMPLES:
     .\main.ps1 -ConfigFile my.env # Use custom config file
 ```
 
-## 🔧 Advanced Usage
+## Advanced Usage
 
 ### Dry Run Mode
 Preview what the script would do without making any changes:
@@ -228,22 +230,22 @@ Use a different configuration file:
 .\main.ps1 -ConfigFile production.env
 ```
 
-## 📊 What Gets Backed Up
+## What Gets Backed Up
 
-- ✅ All repositories in your specified workspace
-- ✅ All branches in each repository (main, master, develop, feature branches, etc.)
-- ✅ Complete Git history and commits
-- ✅ All tags and refs
-- ✅ Repository metadata and structure
+- All repositories in your specified workspace
+- All branches in each repository (main, master, develop, feature branches, etc.)
+- Complete Git history and commits
+- All tags and refs
+- Repository metadata and structure
 
-## 🛡️ Security Notes
+## Security Notes
 
 - The `config.env` file is excluded from Git via `.gitignore`
 - Never commit your actual API token to version control
 - The example file (`config.env.example`) is safe to commit as it contains no real credentials
 - All sensitive data is validated and sanitized before use
 
-## 📈 Performance Features
+## Performance Features
 
 - **Parallel Processing**: Configurable number of concurrent repository backups
 - **Retry Logic**: Automatic retry with exponential backoff for network operations
@@ -251,7 +253,7 @@ Use a different configuration file:
 - **Error Recovery**: Graceful handling of failures with detailed reporting
 - **Memory Efficient**: Processes repositories one at a time to minimize memory usage
 
-## 🔍 Error Handling
+## Error Handling
 
 The script includes comprehensive error handling:
 
@@ -261,7 +263,7 @@ The script includes comprehensive error handling:
 - **Repository Access**: Handling of private repositories and access restrictions
 - **Disk Space**: Validation of available disk space before backup
 
-## 📋 Requirements
+## Requirements
 
 ### **macOS/Linux:**
 - **Bash shell** (version 4.0 or higher)
@@ -273,7 +275,7 @@ The script includes comprehensive error handling:
 - **PowerShell** (version 5.0 or higher)
 - **Git for Windows** (version 2.0 or higher)
 
-## 📝 Logging
+## Logging
 
 The script provides comprehensive logging with different levels:
 
@@ -284,7 +286,7 @@ The script provides comprehensive logging with different levels:
 
 All logs include timestamps and are color-coded for easy reading.
 
-## 📊 Output Example
+## Output Example
 
 ```
 [2024-07-21 10:30:15] [INFO] Found 38 repositories to backup
@@ -304,11 +306,11 @@ Backup time: Sun Jul 21 10:35:22 2024
 ==========================================
 ```
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-## 📄 License
+## License
 
 MIT License
 
